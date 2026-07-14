@@ -49,6 +49,14 @@ export default function LoginPage() {
           Log in to your Glaze & Gear account
         </p>
 
+        {!process.env.NEXT_PUBLIC_HAS_DB && (
+          <div className="mb-6 p-4 bg-blue-50 text-blue-800 text-sm rounded-xl border border-blue-100 font-medium">
+            <strong>Demo Mode Active</strong><br/>
+            Admin: <code>admin@example.com</code> / <code>admin</code><br/>
+            User: <code>test@example.com</code> / <code>password</code>
+          </div>
+        )}
+
         <button
           type="button"
           onClick={() => signIn("google", { callbackUrl: "/" })}
