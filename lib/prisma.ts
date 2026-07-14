@@ -12,6 +12,7 @@ const createMockPrisma = () => {
             if (['findMany', 'map', 'filter', 'groupBy'].includes(prop2)) return [];
             if (['count', 'updateMany', 'deleteMany'].includes(prop2)) return 0;
             if (['createMany'].includes(prop2)) return { count: 0 };
+            if (['aggregate'].includes(prop2)) return { _sum: {}, _count: {}, _avg: {}, _min: {}, _max: {} };
             return null;
           };
         }
